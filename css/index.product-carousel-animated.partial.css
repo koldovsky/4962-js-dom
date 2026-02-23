@@ -1,0 +1,97 @@
+.product-carousel-animated {
+    display: grid;
+    grid-template-columns: 100px 1fr 100px;
+    grid-template-rows: auto auto;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 0;
+}
+
+.product-carousel-animated__button {
+    background-color: transparent;
+    border: 2px solid var(--border-color);
+    cursor: pointer;
+    font-size: 32px;
+    padding: 10px;
+    transition: border-color 0.3s;
+    
+    &:hover {
+        border-color: var(--accent-color);
+    }
+}
+
+.product-carousel-animated__button--prev {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.product-carousel-animated__button--next {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.product-carousel-animated__slides-wrapper {
+    grid-column: 2;
+    grid-row: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-carousel-animated__slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+}
+
+.product-carousel-animated__slide {
+    flex: 0 0 100%;
+    padding: 0 8px;
+    box-sizing: border-box;
+    
+    & img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+
+.product-carousel-animated__indicators {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    padding-top: 16px;
+}
+
+.product-carousel-animated__indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--border-color);
+    border: 2px solid var(--border-color);
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    
+    &:hover {
+        border-color: var(--accent-color);
+    }
+    
+    &--active {
+        background-color: var(--accent-color);
+        border-color: var(--accent-color);
+    }
+}
+
+/* Responsive adjustments */
+@media (min-width: 600px) {
+    .product-carousel-animated__slide {
+        flex: 0 0 50%; /* 2 slides */
+    }
+}
+
+@media (min-width: 900px) {
+    .product-carousel-animated__slide {
+        flex: 0 0 33.333%; /* 3 slides */
+    }
+}
